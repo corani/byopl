@@ -60,12 +60,32 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
           <version>3.4.1</version>
-          <configuration>
-              <mainClass>nl.loadingdata.j0.j0</mainClass>
-              <arguments>
-                  <argument>examples/hello.java</argument>
-              </arguments>
-          </configuration>
+          <executions>
+              <execution>
+                  <id>simple</id>
+                  <goals>
+                      <goal>java</goal>
+                  </goals>
+                  <configuration>
+                      <mainClass>nl.loadingdata.simple.simple</mainClass>
+                      <arguments>
+                          <argument>examples/dorrie.in</argument>
+                      </arguments>
+                  </configuration>
+              </execution>
+              <execution>
+                  <id>j0</id>
+                  <goals>
+                      <goal>java</goal>
+                  </goals>
+                  <configuration>
+                      <mainClass>nl.loadingdata.j0.j0</mainClass>
+                      <arguments>
+                          <argument>examples/hello.java</argument>
+                      </arguments>
+                  </configuration>
+              </execution>
+          </executions>
       </plugin>
     </plugins>
     

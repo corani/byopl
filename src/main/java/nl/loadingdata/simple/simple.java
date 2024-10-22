@@ -13,8 +13,11 @@ public class simple {
 
         int i;
 
-        while ((i = lex.yylex()) != Yylex.YYEOF)
-            System.out.println("token " + i + " (line " + yylval.lineno + "): " + yylval.text);
+        while ((i = lex.yylex()) != Yylex.YYEOF) {
+            System.out.println("token " + i + 
+                    ":line " + yylval.lineno + 
+                    ": " + yylval.text);
+        }
     }
 
     public static String yytext() {
@@ -22,7 +25,9 @@ public class simple {
     }
 
     public static void lexErr(String s) {
-        System.err.println(s+ ": line " + yylineno + ": " + yytext());
+        System.err.println(s + 
+                ": line " + yylineno + 
+                ": " + yytext());
         System.exit(1);
     }
 
