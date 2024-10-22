@@ -61,9 +61,9 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>3.4.1</version>
           <configuration>
-              <mainClass>nl.loadingdata.simple.simple</mainClass>
+              <mainClass>nl.loadingdata.j0.j0</mainClass>
               <arguments>
-                  <argument>examples/dorrie.in</argument>
+                  <argument>examples/hello.java</argument>
               </arguments>
           </configuration>
       </plugin>
