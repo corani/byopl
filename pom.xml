@@ -85,6 +85,16 @@
                       </arguments>
                   </configuration>
               </execution>
+              <execution>
+                  <id>byopl</id>
+                  <phase>generate-sources</phase>
+                  <goals>
+                      <goal>exec</goal>
+                  </goals>
+                  <configuration>
+                      <executable>${basedir}/scripts/yacc.sh</executable>
+                  </configuration>
+              </execution>
           </executions>
       </plugin>
     </plugins>

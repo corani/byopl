@@ -1,6 +1,7 @@
 package nl.loadingdata.simple;
 
 import java.io.FileReader;
+import java.io.IOException;
 
 public class simple {
     static Yylex lex;
@@ -11,15 +12,22 @@ public class simple {
         lex = new Yylex(new FileReader(argv[0]));
         yylineno = 1;
 
-        int i;
+        Parser par = new Parser();
 
-        while ((i = lex.yylex()) != Yylex.YYEOF) {
-            System.out.println("token " + i + 
-                    ":line " + yylval.lineno + 
-                    ": " + yylval.text);
+        if (par.yyparse() != 0) {
+            System.err.println("parse failed");
+        } else {
+            System.out.println("parse succeeded");
         }
     }
 
+    public static int yylex() {
+        try {
+            return lex.yylex();
+        } catch (IOException e) {
+            return -1;
+        }
+    }
     public static String yytext() {
         return lex.yytext();
     }
