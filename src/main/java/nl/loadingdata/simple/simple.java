@@ -28,6 +28,7 @@ public class simple {
             return -1;
         }
     }
+
     public static String yytext() {
         return lex.yytext();
     }

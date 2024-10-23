@@ -1,23 +1,40 @@
 package nl.loadingdata.j0;
 
 import java.io.FileReader;
+import java.io.IOException;
 
 public class j0 {
     static Yylex lex;
-    public static int yylineno, yycolno;
+    public static int yylineno, yycolno, count;
     public static token yylval;
 
     public static void main(String argv[]) throws Exception {
         lex = new Yylex(new FileReader(argv[0]));
         yylineno = 1;
         yycolno = 1;
+        count = 0;
 
-        int i;
+        Parser par = new Parser();
 
-        while ((i = lex.yylex()) != Yylex.YYEOF) {
-            System.out.println("token " + i + 
-                    ": line " + yylval.lineno + 
-                    ": " + yylval.text);
+        if (par.yyparse() != 0) {
+            System.err.println("parse failed");
+        } else {
+            System.out.println("parse succeeded, " + count + " tokens processed");
+        }
+    }
+
+    public static int yylex() {
+        try {
+            int token;
+
+            if ((token = lex.yylex()) >= 0) {
+                count++;
+                System.out.println(count + ": " + token + " " + yytext());
+            }
+
+            return token;
+        } catch (IOException e) {
+            return -1;
         }
     }
 

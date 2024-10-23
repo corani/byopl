@@ -14,13 +14,13 @@ public class token {
         this.colno = colno;
 
         switch (cat) {
-        case parser.INTLIT: 
+        case Parser.INTLIT: 
             this.ival = Integer.parseInt(text);
             break;
-        case parser.DOUBLELIT: 
+        case Parser.DOUBLELIT: 
             this.dval = Double.parseDouble(text);
             break;
-        case parser.STRINGLIT: 
+        case Parser.STRINGLIT: 
             this.sval = unescape(text);
             break;
         }
