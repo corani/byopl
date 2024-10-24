@@ -12,6 +12,7 @@ by using Maven to manage the project.
 ```bash
 mvn clean package
 mvn exec:java@j0
+mvn exec:exec@dot
 ```
 
 > [!note]

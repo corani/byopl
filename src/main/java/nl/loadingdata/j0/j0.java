@@ -6,15 +6,17 @@ import java.io.IOException;
 public class j0 {
     static Yylex lex;
     public static int yylineno, yycolno, count;
-    public static ParserVal yylval;
+    public static String yyfilename;
+    public static Parser par;
 
     public static void main(String argv[]) throws Exception {
-        lex = new Yylex(new FileReader(argv[0]));
+        yyfilename = argv[0];
         yylineno = 1;
         yycolno = 1;
         count = 0;
 
-        Parser par = new Parser();
+        lex = new Yylex(new FileReader(yyfilename));
+        par = new Parser();
 
         if (par.yyparse() != 0) {
             System.err.println("parse failed");
@@ -54,7 +56,7 @@ public class j0 {
     }
 
     public static int scan(int cat) {
-        yylval = new ParserVal(
+        par.yylval = new ParserVal(
                 new tree("token", 0, 
                     new token(cat, yytext(), yylineno, yycolno)));
         yycolno += yytext().length();
@@ -82,6 +84,10 @@ public class j0 {
                 yycolno++;
             }
         }
+    }
+
+    public static void print(ParserVal node) {
+        ((tree) node.obj).print(yyfilename + ".dot");
     }
 
     public static ParserVal node(String s, int r, ParserVal...p) {

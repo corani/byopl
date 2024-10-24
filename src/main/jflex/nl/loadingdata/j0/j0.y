@@ -7,7 +7,7 @@
 
 %%
 
-ClassDecl : PUBLIC CLASS IDENTIFIER ClassBody { $$=j0.node("ClassDecl", 1000, $3, $4); } 
+ClassDecl : PUBLIC CLASS IDENTIFIER ClassBody { $$=j0.node("ClassDecl", 1000, $3, $4); j0.print($$); } 
           ;
 
 ClassBody : '{' ClassBodyDecls '}' { $$=j0.node("ClassBody", 1010, $2); } 
@@ -113,7 +113,6 @@ ExprStmt : StmtExpr ';'
 
 StmtExpr : Assignment
          | MethodCall
-         | InstantiationExpr
          ;
 
 IfThenStmt : IF '(' Expr ')' Block { $$=j0.node("IfThenStmt", 1150, $3, $5); }
@@ -175,9 +174,6 @@ Literal : INTLIT
         | NULLVAL
         ;
 
-InstantiationExpr : Name '(' ArgListOpt ')' { $$=j0.node("InstantiationExpr", 1260, $1, $3); }
-                  ;
-
 ArgListOpt : ArgList
            |
            ;
@@ -189,7 +185,7 @@ ArgList : Expr
 FieldAccess : Primary '.' IDENTIFIER { $$=j0.node("FieldAccess", 1280, $1, $3); }
             ;
 
-MethodCall : Name '(' ArgListOp ')' { $$=j0.node("MethodCall", 1290, $1, $3); }
+MethodCall : Name '(' ArgListOpt ')' { $$=j0.node("MethodCall", 1290, $1, $3); }
            | Primary '.' IDENTIFIER '(' ArgListOpt ')' { $$=j0.node("MethodCall", 1291, $1, $3, $5); }
            | Primary '.' IDENTIFIER '{' ArgListOpt '}' { $$=j0.node("MethodCall", 1292, $1, $3, $5); }
            ;
