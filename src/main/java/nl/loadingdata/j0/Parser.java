@@ -768,6 +768,195 @@ boolean doaction;
     switch(yyn)
       {
 //########## USER-SUPPLIED ACTIONS ##########
+case 1:
+//#line 10 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ClassDecl", 1000, val_peek(1), val_peek(0)); }
+break;
+case 2:
+//#line 13 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ClassBody", 1010, val_peek(1)); }
+break;
+case 3:
+//#line 14 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ClassBody", 1010); }
+break;
+case 5:
+//#line 18 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ClassBodyDecls", 1020, val_peek(1), val_peek(0)); }
+break;
+case 9:
+//#line 26 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("FieldDecl", 1030, val_peek(2), val_peek(1)); }
+break;
+case 17:
+//#line 40 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("QualifiedName", 1040, val_peek(2), val_peek(0)); }
+break;
+case 19:
+//#line 44 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("VarDecls", 1050, val_peek(2), val_peek(0)); }
+break;
+case 21:
+//#line 48 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("VarDeclarator", 1060, val_peek(2)); }
+break;
+case 22:
+//#line 51 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MethodDecl", 1380, val_peek(1), val_peek(0)); }
+break;
+case 23:
+//#line 54 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ConstructorDecl", 1110, val_peek(1), val_peek(0)); }
+break;
+case 24:
+//#line 57 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MethodHeader", 1070, val_peek(1), val_peek(0)); }
+break;
+case 27:
+//#line 64 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MethodDeclarator", 1080, val_peek(3), val_peek(1)); }
+break;
+case 31:
+//#line 72 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("FormalParamList", 1090, val_peek(2), val_peek(0)); }
+break;
+case 32:
+//#line 75 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("FormalParam", 1100, val_peek(1), val_peek(0)); }
+break;
+case 33:
+//#line 78 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("Block", 1200, val_peek(1)); }
+break;
+case 37:
+//#line 86 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("BlockStmts", 1130, val_peek(1), val_peek(0)); }
+break;
+case 41:
+//#line 96 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("LocalVarDecl", 1140, val_peek(1), val_peek(0)); }
+break;
+case 56:
+//#line 119 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("IfThenStmt", 1150, val_peek(2), val_peek(0)); }
+break;
+case 57:
+//#line 122 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("IfThenElseStmt", 1160, val_peek(4), val_peek(2), val_peek(0)); }
+break;
+case 58:
+//#line 125 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("IfThenElseIfStmt", 1170, val_peek(3), val_peek(1), val_peek(0)); }
+break;
+case 59:
+//#line 126 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("IfThenElseIfStmt", 1171, val_peek(5), val_peek(3), val_peek(2), val_peek(0)); }
+break;
+case 61:
+//#line 130 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ElseIfSequence", 1180, val_peek(1), val_peek(0)); }
+break;
+case 62:
+//#line 133 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ElseIfStmt", 1190, val_peek(0)); }
+break;
+case 63:
+//#line 136 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("WhileStmt", 1210, val_peek(2), val_peek(0)); }
+break;
+case 64:
+//#line 139 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ForStmt", 1220, val_peek(6), val_peek(4), val_peek(2), val_peek(0)); }
+break;
+case 73:
+//#line 156 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("StmtExprList", 1230, val_peek(2), val_peek(0)); }
+break;
+case 75:
+//#line 162 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ReturnStmt", 1250, val_peek(1)); }
+break;
+case 77:
+//#line 166 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=val_peek(1); }
+break;
+case 85:
+//#line 178 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("InstantiationExpr", 1260, val_peek(3), val_peek(1)); }
+break;
+case 89:
+//#line 186 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("ArgList", 1270, val_peek(2), val_peek(0)); }
+break;
+case 90:
+//#line 189 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("FieldAccess", 1280, val_peek(2), val_peek(0)); }
+break;
+case 91:
+//#line 192 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MethodCall", 1290, val_peek(3), val_peek(1)); }
+break;
+case 92:
+//#line 193 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MethodCall", 1291, val_peek(5), val_peek(3), val_peek(1)); }
+break;
+case 93:
+//#line 194 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MethodCall", 1292, val_peek(5), val_peek(3), val_peek(1)); }
+break;
+case 96:
+//#line 201 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("UnaryExpr", 1300, val_peek(0)); }
+break;
+case 97:
+//#line 202 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("UnaryExpr", 1301, val_peek(0)); }
+break;
+case 100:
+//#line 207 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MulExpr", 1310, val_peek(2), val_peek(0)); }
+break;
+case 101:
+//#line 208 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MulExpr", 1311, val_peek(2), val_peek(0)); }
+break;
+case 102:
+//#line 209 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("MulExpr", 1312, val_peek(2), val_peek(0)); }
+break;
+case 104:
+//#line 213 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("AddExpr", 1320, val_peek(2), val_peek(0)); }
+break;
+case 105:
+//#line 214 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("AddExpr", 1321, val_peek(2), val_peek(0)); }
+break;
+case 111:
+//#line 224 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("RelExpr", 1330, val_peek(2), val_peek(1), val_peek(0)); }
+break;
+case 113:
+//#line 228 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("EqExpr", 1340, val_peek(2), val_peek(0)); }
+break;
+case 114:
+//#line 229 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("EqExpr", 1341, val_peek(2), val_peek(0)); }
+break;
+case 116:
+//#line 233 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("CondAndExpr", 1350, val_peek(2), val_peek(0)); }
+break;
+case 118:
+//#line 237 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("CondOrExpr", 1360, val_peek(2), val_peek(0)); }
+break;
+case 121:
+//#line 244 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
+{ yyval=j0.node("Assignment", 1370, val_peek(2), val_peek(1), val_peek(0)); }
+break;
+//#line 882 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

@@ -6,7 +6,7 @@ import java.io.IOException;
 public class j0 {
     static Yylex lex;
     public static int yylineno, yycolno, count;
-    public static token yylval;
+    public static ParserVal yylval;
 
     public static void main(String argv[]) throws Exception {
         lex = new Yylex(new FileReader(argv[0]));
@@ -54,7 +54,9 @@ public class j0 {
     }
 
     public static int scan(int cat) {
-        yylval = new token(cat, yytext(), yylineno, yycolno);
+        yylval = new ParserVal(
+                new tree("token", 0, 
+                    new token(cat, yytext(), yylineno, yycolno)));
         yycolno += yytext().length();
 
         return cat;
@@ -80,5 +82,15 @@ public class j0 {
                 yycolno++;
             }
         }
+    }
+
+    public static ParserVal node(String s, int r, ParserVal...p) {
+        tree[] t = new tree[p.length];
+
+        for (int i = 0; i < t.length; i++) {
+            t[i] = (tree) p[i].obj;
+        }
+
+        return new ParserVal(new tree(s, r, t));
     }
 }
