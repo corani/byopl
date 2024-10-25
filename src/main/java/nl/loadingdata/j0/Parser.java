@@ -764,7 +764,7 @@ boolean doaction;
 //########## USER-SUPPLIED ACTIONS ##########
 case 1:
 //#line 10 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"
-{ yyval=j0.node("ClassDecl", 1000, val_peek(1), val_peek(0)); j0.print(yyval); }
+{ yyval=j0.node("ClassDecl", 1000, val_peek(1), val_peek(0)); j0.semantic(yyval); }
 break;
 case 2:
 //#line 13 "/home/I331555/code/java/buildyourownprogramminglanguage/byopl-app/src/main/jflex/nl/loadingdata/j0/j0.y"

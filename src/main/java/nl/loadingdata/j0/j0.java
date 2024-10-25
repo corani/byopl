@@ -8,6 +8,7 @@ public class j0 {
     public static int yylineno, yycolno, count;
     public static String yyfilename;
     public static Parser par;
+    public static symtab global_st;
 
     public static void main(String argv[]) throws Exception {
         yyfilename = argv[0];
@@ -86,8 +87,23 @@ public class j0 {
         }
     }
 
-    public static void print(ParserVal node) {
-        ((tree) node.obj).print(yyfilename + ".dot");
+    public static void semantic(ParserVal node) {
+        tree root = (tree) node.obj;
+
+        root.print(yyfilename + ".dot");
+
+        global_st = new symtab("global");
+        symtab System_st = new symtab("class");
+        symtab out_st = new symtab("method");
+        out_st.insert("println", false);
+        System_st.insert("out", false, out_st);
+        global_st.insert("System", false, System_st);
+
+        root.mkSymTables(global_st);
+        root.populateSymTables();
+        root.checkSymTables();
+
+        global_st.print();
     }
 
     public static ParserVal node(String s, int r, ParserVal...p) {

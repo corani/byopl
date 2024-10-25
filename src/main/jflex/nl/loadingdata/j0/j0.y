@@ -7,7 +7,7 @@
 
 %%
 
-ClassDecl : PUBLIC CLASS IDENTIFIER ClassBody { $$=j0.node("ClassDecl", 1000, $3, $4); j0.print($$); } 
+ClassDecl : PUBLIC CLASS IDENTIFIER ClassBody { $$=j0.node("ClassDecl", 1000, $3, $4); j0.semantic($$); } 
           ;
 
 ClassBody : '{' ClassBodyDecls '}' { $$=j0.node("ClassBody", 1010, $2); } 
