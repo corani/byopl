@@ -18,4 +18,25 @@ public class symtab_entry {
         st = t;
         isConst = c;
     }
+
+    void indent(int level) {
+        for (int i = 0; i < level; i++) {
+            System.out.print("  ");
+        }
+    }
+
+    void print(int level) {
+        indent(level);
+        System.out.print(sym);
+
+        if (isConst) {
+            System.out.print(" (const)");
+        }
+
+        System.out.println();
+
+        if (st != null) {
+            st.print(level + 1);
+        }
+    }
 }

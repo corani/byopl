@@ -52,6 +52,13 @@ public class j0 {
         System.exit(1);
     }
 
+    public static void semErr(String s) {
+        System.err.println(s + 
+                ": line " + yylineno + 
+                ": " + yytext());
+        System.exit(1);
+    }
+
     public static short ord(String s) {
         return (short) s.charAt(0);
     }
@@ -94,7 +101,7 @@ public class j0 {
 
         global_st = new symtab("global");
         symtab System_st = new symtab("class");
-        symtab out_st = new symtab("method");
+        symtab out_st = new symtab("class");
         out_st.insert("println", false);
         System_st.insert("out", false, out_st);
         global_st.insert("System", false, System_st);

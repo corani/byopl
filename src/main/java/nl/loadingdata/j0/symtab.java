@@ -20,11 +20,20 @@ public class symtab {
     }
 
     void insert(String s, boolean c) {
-        t.put(s, new symtab_entry(s, this, c));
+        if (t.containsKey(s)) {
+            j0.semErr("redeclaration of " + s);
+        } else {
+            t.put(s, new symtab_entry(s, this, c));
+        }
     }
 
     void insert(String s, boolean c, symtab st) {
-        t.put(s, new symtab_entry(s, this, c, st));
+        if (t.containsKey(s)) {
+            j0.semErr("redeclaration of " + s);
+        } else {
+            st.parent = this;
+            t.put(s, new symtab_entry(s, this, c, st));
+        }
     }
 
     symtab_entry lookup(String s) {
@@ -40,6 +49,21 @@ public class symtab {
     }
 
     void print() {
-        // TODO(daniel): implementation
+        print(0);
+    }
+
+    void indent(int level) {
+        for (int i = 0; i < level; i++) {
+            System.out.print("  ");
+        }
+    }
+
+    void print(int level) {
+        indent(level);
+        System.out.println(scope + " (" + t.size() + " symbols)");
+
+        for (symtab_entry e : t.values()) {
+            e.print(level+1);
+        }
     }
 }

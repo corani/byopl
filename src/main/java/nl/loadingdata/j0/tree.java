@@ -185,10 +185,6 @@ class tree {
         }
     }
 
-    void checkSymTables() {
-
-    }
-
     void calc_isConst() {
         for (int i = 0; i < nkids; i++) {
             if (kids[i] != null) {
@@ -213,6 +209,51 @@ class tree {
                 // NOTE(daniel): the book uses `MULEXPR` and `ADDEXPR`, which seems incorrect.
                 isConst = kids[0].isConst && kids[1].isConst;
             } break;
+        }
+    }
+
+    void checkSymTables() {
+        check_codeblocks();
+    }
+
+    void check_codeblocks() {
+        if (sym.equals("MethodDecl")) {
+            kids[1].check_blocks();
+        } else {
+            for (int i = 0; i < nkids; i++) {
+                if (kids[i] != null && kids[i].nkids > 0) {
+                    kids[i].check_codeblocks();
+                }
+            }
+        }
+    }
+
+    void check_blocks() {
+        switch (sym) {
+            case "IDENTIFIER": {
+                if (stab.lookup(tok.text) == null) {
+                    j0.semErr("undeclared variable " + tok.text);
+                }
+            } break;
+            case "FieldAccess": case "QualitifiedName": {
+                kids[0].check_blocks();
+            } break;
+            case "MethodCall": {
+                kids[0].check_blocks();
+                if (rule == 1290) {
+                    kids[1].check_blocks();
+                } else {
+                    kids[2].check_blocks();
+                }
+            } break;
+            case "LocalVarDecl": break;
+            default: {
+                for (int i = 0; i < nkids; i++) {
+                    if (kids[i] != null) {
+                        kids[i].check_blocks();
+                    }
+                }
+            }
         }
     }
 }
